@@ -28,6 +28,17 @@ const server = http.createServer((req, res) => {
                     }
                 )
                 break
+            case '/api/users':
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                })
+                const users = [
+                    {name: 'Leha', age: 25},
+                    {name: 'Elena', age: 23},
+                    {name: 'Liza', age: 30},
+                ]
+                res.end(JSON.stringify(users))
+                break
         }
     } else if (req.method === 'POST') {
         const body = []
